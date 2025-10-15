@@ -608,40 +608,66 @@
         @media (max-width: 1024px) {
             .invitation-container {
                 grid-template-columns: 1fr;
+                grid-template-rows: auto auto;
                 gap: 1.5rem;
                 padding: 1.5rem;
                 overflow-y: auto;
+                height: auto;
             }
 
             .left-container {
-                padding: 1.5rem;
+                padding: 2rem 1.5rem;
+                min-height: auto;
             }
 
             .right-container {
                 overflow-y: visible;
+                padding-right: 0;
+            }
+
+            .invitation-content {
+                height: auto;
             }
 
             body {
                 overflow-y: auto;
                 height: auto;
+                overflow-x: hidden;
             }
         }
 
         @media (max-width: 768px) {
+            .invitation-container {
+                padding: 1rem;
+                gap: 1rem;
+            }
+
             .invitation-title h1 {
-                font-size: 1.5rem;
+                font-size: 1.4rem;
             }
 
             .invitation-title .subtitle {
-                font-size: 0.7rem;
+                font-size: 0.65rem;
+            }
+
+            .left-container {
+                padding: 1.5rem 1rem;
             }
 
             .invitation-content {
-                padding: 1.5rem;
+                padding: 1.5rem 1.2rem;
             }
 
             .invitation-text {
                 font-size: 0.9rem;
+            }
+
+            .invitation-cta {
+                padding: 1.2rem 1rem;
+            }
+
+            .invitation-cta-text {
+                font-size: 1rem !important;
             }
 
             .category-grid {
@@ -654,10 +680,72 @@
 
             .logo {
                 max-width: 80px;
+                margin-bottom: 1rem;
             }
 
             .left-qr-section .qr-code {
                 max-width: 150px;
+            }
+
+            .benefits li {
+                font-size: 0.85rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .invitation-container {
+                padding: 0.8rem;
+            }
+
+            .invitation-title h1 {
+                font-size: 1.2rem;
+            }
+
+            .invitation-title .subtitle {
+                font-size: 0.6rem;
+                letter-spacing: 1px;
+            }
+
+            .left-container {
+                padding: 1.2rem 0.8rem;
+            }
+
+            .invitation-content {
+                padding: 1.2rem 1rem;
+            }
+
+            .greeting {
+                font-size: 1rem;
+            }
+
+            .invitation-text {
+                font-size: 0.85rem;
+            }
+
+            .invitation-cta-text {
+                font-size: 0.95rem !important;
+            }
+
+            .benefits h3 {
+                font-size: 0.95rem;
+            }
+
+            .benefits li {
+                font-size: 0.8rem;
+            }
+
+            .logo {
+                max-width: 70px;
+            }
+
+            .left-qr-section h4,
+            .left-email-section h4 {
+                font-size: 0.85rem;
+            }
+
+            .left-email-section .email-link {
+                font-size: 0.8rem;
+                padding: 0.5rem 0.8rem;
             }
         }
     </style>
