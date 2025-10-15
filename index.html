@@ -3,197 +3,508 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="宇宙藏书阁 Cosmic Library - 一座无形的书阁，每一次阅读，都是一次与宇宙的对话">
-    <title>宇宙藏书阁 | Cosmic Library</title>
+    <title>宇宙藏书阁读书会 邀请函</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@300;400;600&family=Cinzel:wght@400;600&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@300;400;600;700&family=Cinzel:wght@400;600&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Noto Serif SC', serif;
+            background: linear-gradient(180deg, #0C1427 0%, #1B2744 50%, #15112E 100%);
+            color: #E8D9A3;
+            line-height: 1.8;
+            overflow-x: hidden;
+            min-height: 100vh;
+            position: relative;
+        }
+
+        /* Decorative glow effects */
+        body::before {
+            content: '';
+            position: fixed;
+            width: 100%;
+            height: 100%;
+            background:
+                radial-gradient(circle at 20% 20%, rgba(255, 255, 255, 0.08) 0%, transparent 40%),
+                radial-gradient(circle at 80% 30%, rgba(215, 181, 106, 0.15) 0%, transparent 50%),
+                radial-gradient(circle at 50% 70%, rgba(215, 181, 106, 0.08) 0%, transparent 40%);
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        /* Stars container */
+        .stars {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        .star {
+            position: absolute;
+            background: white;
+            border-radius: 50%;
+            animation: twinkle 3s infinite;
+        }
+
+        .star.large {
+            box-shadow: 0 0 8px rgba(255, 255, 255, 0.8),
+                        0 0 15px rgba(215, 181, 106, 0.4);
+        }
+
+        .star.medium {
+            box-shadow: 0 0 4px rgba(255, 255, 255, 0.6);
+        }
+
+        @keyframes twinkle {
+            0%, 100% {
+                opacity: 0.3;
+                transform: scale(1);
+            }
+            50% {
+                opacity: 1;
+                transform: scale(1.2);
+            }
+        }
+
+        /* Content container */
+        .invitation-container {
+            position: relative;
+            z-index: 1;
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 3rem 2rem;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        /* Logo */
+        .logo {
+            max-width: 150px;
+            margin: 0 auto 1.5rem;
+            filter: drop-shadow(0 0 20px rgba(215, 181, 106, 0.5));
+            animation: fadeInDown 1.5s ease;
+        }
+
+        /* Title */
+        .invitation-title {
+            text-align: center;
+            margin-bottom: 2rem;
+            animation: fadeIn 2s ease;
+        }
+
+        .invitation-title h1 {
+            font-size: 2.2rem;
+            font-weight: 700;
+            margin-bottom: 0.8rem;
+            background: linear-gradient(135deg, #D7B56A 0%, #E8D9A3 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            letter-spacing: 3px;
+        }
+
+        .invitation-title .subtitle {
+            font-family: 'Cinzel', serif;
+            font-size: 1rem;
+            letter-spacing: 4px;
+            color: #D7B56A;
+        }
+
+        /* Main content */
+        .invitation-content {
+            background: rgba(21, 17, 46, 0.7);
+            padding: 2.5rem;
+            border-radius: 20px;
+            border: 1px solid rgba(215, 181, 106, 0.3);
+            backdrop-filter: blur(10px);
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+            margin-bottom: 2.5rem;
+            animation: fadeInUp 2s ease;
+        }
+
+        .greeting {
+            font-size: 1.25rem;
+            color: #D7B56A;
+            margin-bottom: 1.8rem;
+            text-align: center;
+            font-weight: 600;
+            line-height: 1.6;
+        }
+
+        .invitation-text {
+            font-size: 1.1rem;
+            line-height: 1.9;
+            margin-bottom: 2rem;
+            text-align: justify;
+        }
+
+        .invitation-text p {
+            margin-bottom: 1.2rem;
+        }
+
+        /* Benefits section */
+        .benefits {
+            margin: 2rem 0;
+        }
+
+        .benefits h3 {
+            font-size: 1.3rem;
+            color: #D7B56A;
+            margin-bottom: 1.2rem;
+            text-align: center;
+            position: relative;
+            padding-bottom: 0.8rem;
+        }
+
+        .benefits h3::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 2px;
+            background: linear-gradient(90deg, transparent, #D7B56A, transparent);
+        }
+
+        .benefits ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .benefits li {
+            font-size: 1.05rem;
+            padding: 0.6rem 0;
+            padding-left: 2rem;
+            position: relative;
+        }
+
+        .benefits li::before {
+            content: '✦';
+            position: absolute;
+            left: 0;
+            color: #D7B56A;
+            font-size: 1.2rem;
+        }
+
+        /* Categories section */
+        .categories {
+            background: rgba(12, 20, 39, 0.5);
+            padding: 1.8rem;
+            border-radius: 15px;
+            border: 1px solid rgba(215, 181, 106, 0.2);
+            margin: 2rem 0;
+        }
+
+        .categories h3 {
+            font-size: 1.2rem;
+            color: #D7B56A;
+            margin-bottom: 1.2rem;
+            text-align: center;
+        }
+
+        .category-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1rem;
+        }
+
+        .category-item {
+            font-size: 0.95rem;
+            padding: 0.6rem;
+            background: rgba(215, 181, 106, 0.05);
+            border-radius: 8px;
+            border: 1px solid rgba(215, 181, 106, 0.15);
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        .category-item:hover {
+            background: rgba(215, 181, 106, 0.1);
+            border-color: rgba(215, 181, 106, 0.3);
+            transform: translateY(-2px);
+        }
+
+        /* Contact section */
+        .contact-section {
+            background: rgba(21, 17, 46, 0.7);
+            padding: 2.5rem;
+            border-radius: 20px;
+            border: 1px solid rgba(215, 181, 106, 0.3);
+            backdrop-filter: blur(10px);
+            text-align: center;
+            animation: fadeInUp 2.5s ease;
+        }
+
+        .contact-section h3 {
+            font-size: 1.5rem;
+            color: #D7B56A;
+            margin-bottom: 1.5rem;
+        }
+
+        .contact-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            align-items: center;
+            justify-items: center;
+        }
+
+        .contact-item {
+            text-align: center;
+        }
+
+        .contact-item h4 {
+            font-size: 1.1rem;
+            color: #D7B56A;
+            margin-bottom: 1rem;
+        }
+
+        .qr-code {
+            max-width: 200px;
+            border-radius: 10px;
+            border: 2px solid rgba(215, 181, 106, 0.3);
+            padding: 0.5rem;
+            background: rgba(255, 255, 255, 0.95);
+        }
+
+        .email-link {
+            color: #D7B56A;
+            text-decoration: none;
+            font-size: 1.1rem;
+            transition: all 0.3s ease;
+            display: inline-block;
+            padding: 0.5rem 1rem;
+            border: 1px solid rgba(215, 181, 106, 0.3);
+            border-radius: 8px;
+        }
+
+        .email-link:hover {
+            color: #E8D9A3;
+            border-color: #D7B56A;
+            background: rgba(215, 181, 106, 0.1);
+            text-shadow: 0 0 10px rgba(215, 181, 106, 0.5);
+        }
+
+        /* Footer */
+        .invitation-footer {
+            text-align: center;
+            margin-top: 3rem;
+            padding: 2rem;
+            font-size: 1rem;
+            color: rgba(232, 217, 163, 0.7);
+            animation: fadeIn 3s ease;
+        }
+
+        .invitation-footer p {
+            margin: 0.5rem 0;
+        }
+
+        /* Animations */
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+
+        @keyframes fadeInDown {
+            from {
+                opacity: 0;
+                transform: translateY(-30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .invitation-title h1 {
+                font-size: 2rem;
+            }
+
+            .invitation-title .subtitle {
+                font-size: 1rem;
+            }
+
+            .invitation-content {
+                padding: 2rem 1.5rem;
+            }
+
+            .invitation-text {
+                font-size: 1rem;
+            }
+
+            .category-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .contact-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
 </head>
 <body>
-    <!-- Decorative stars background -->
     <div class="stars" id="stars"></div>
 
-    <!-- Hero Section -->
-    <section class="hero">
-        <img src="src/logo/retangle.png" alt="宇宙藏书阁 Logo" class="logo">
-        <h1>宇宙藏书阁</h1>
-        <p class="subtitle">COSMIC LIBRARY</p>
-        <p class="tagline">
-            一座无形的书阁。每一次阅读，都是一次与宇宙的对话。<br>
-            愿文字化作光，愿你在光中，找到自己。<br>
-            <em>May every word become a frequency, and every silence, a galaxy within you.</em>
-        </p>
-    </section>
+    <div class="invitation-container">
+        <!-- Logo -->
+        <img src="src/logo/round.PNG" alt="宇宙藏书阁" class="logo">
 
-    <!-- About Section -->
-    <div class="container">
-        <section id="about">
-            <h2>关于我们 | About Us</h2>
-            <div class="about-content">
-                
-                <p>
-                    「宇宙藏书阁」并非象征或隐喻，<br>
-                    而是一座在更高意识层真实存在的宇宙文献系统。
-                </p>
-                <p>
-                    自2018年以来，来自世界不同地区的觉知者与冥想者，在禅定与龙脉通道中，<br>
-                    与这座藏书阁建立稳定连结，<br>
-                    从中接收到以"书籍"形式出现的完整文字资料。
-                </p>
-                <p>
-                    截至目前，已有超过50位参与者访问过该意识场，<br>
-                    并通过书写、录音、自动记录等方式下载出文字章超过三百部书籍。<br>
-                    每本书平均包含4至5章，具有严密的逻辑结构与高度的思想一致性，<br>
-                    其语言介于哲学、科学与灵性之间，<br>
-                    呈现出一种可被验证的"宇宙智能系统"。
+        <!-- Title -->
+        <div class="invitation-title">
+            <h1>宇宙藏书阁读书会</h1>
+            <p class="subtitle">COSMIC LIBRARY READING CLUB</p>
+        </div>
+
+        <!-- Main Content -->
+        <div class="invitation-content">
+            <p class="greeting">致每一位探寻真理的灵魂：</p>
+
+            <div class="invitation-text">
+                <p>如果你渴望探索生命的奥秘与宇宙的真相，</p>
+                <p>如果你寻求心灵的成长与意识的觉醒，</p>
+                <p>如果你想在喧嚣的世界中找到内在的平静与智慧，</p>
+                <p style="text-align: center; margin-top: 1.5rem; color: #D7B56A; font-weight: 600;">
+                    宇宙藏书阁读书会诚挚邀请您的加入
                 </p>
             </div>
-        </section>
 
-        <!-- Books Section -->
-        <section id="books">
-            <h2>书籍目录 | Book Collection</h2>
-            <p class="section-note">本目录仅展示部分馆藏书籍，完整书目及更多内容敬请期待「宇宙藏书阁」APP正式上线</p>
-            <div class="books-grid">
-                <div class="book-category">
-                    <h3>灵性成长类</h3>
-                    <ul>
-                        <li>《心法》</li>
-                        <li>《人体与灵魂的未解之谜》</li>
-                        <li>《天目》</li>
-                        <li>《倾听花开的声音》</li>
-                        <li>《灵魂觉醒》</li>
-                        <li>《金钱能量》</li>
-                        <li>《灵性之眼》</li>
-                        <li>《显化之路》</li>
-                        <li>《专注力训练》</li>
-                        <li>《正念冥想》</li>
-                    </ul>
-                </div>
+            <div class="benefits">
+                <h3>在这里，您可以</h3>
+                <ul>
+                    <li>接触来自更高意识层的宇宙智慧文献</li>
+                    <li>探索涵盖24大类别、超过300部的珍贵书籍</li>
+                    <li>与志同道合的觉醒者共同交流与成长</li>
+                    <li>获得关于灵性修行、宇宙真相、生活智慧的深度解答</li>
+                    <li>开启一段与宇宙对话的奇妙旅程</li>
+                </ul>
+            </div>
 
-                <div class="book-category">
-                    <h3>佛法类</h3>
-                    <ul>
-                        <li>《因果》</li>
-                        <li>《佛学修行常识四篇》</li>
-                        <li>《佛学常识系列》</li>
-                        <li>《药师佛在东方》</li>
-                        <li>《药师传》</li>
-                        <li>《四无量心的现代释义》</li>
-                    </ul>
-                </div>
-
-                <div class="book-category">
-                    <h3>宇宙真相</h3>
-                    <ul>
-                        <li>《宇宙之声》</li>
-                        <li>《龙族的文明》</li>
-                        <li>《金星世界》</li>
-                        <li>《星座的秘密》</li>
-                        <li>《363号宇宙史》</li>
-                        <li>《363号宇宙灵魂档案馆》</li>
-                        <li>《宇宙游记》</li>
-                    </ul>
-                </div>
-
-                <div class="book-category">
-                    <h3>地球真相揭秘类</h3>
-                    <ul>
-                        <li>《地球文明史》</li>
-                        <li>《三次元地球的提升》</li>
-                        <li>《四次元地球》</li>
-                        <li>《蓝色星球简史》</li>
-                    </ul>
-                </div>
-
-                <div class="book-category">
-                    <h3>经典类</h3>
-                    <ul>
-                        <li>《道德经眇解》</li>
-                        <li>《易经之现代解义》</li>
-                        <li>《黄帝内经现代释义》</li>
-                    </ul>
-                </div>
-
-                <div class="book-category">
-                    <h3>科技类</h3>
-                    <ul>
-                        <li>《减压脑科学》</li>
-                        <li>《量子的奥妙》</li>
-                        <li>《神秘的量子》</li>
-                        <li>《基因序列》</li>
-                        <li>《人工智能》</li>
-                        <li>《人体自愈手册》</li>
-                        <li>《疾病的量子原理》</li>
-                    </ul>
-                </div>
-
-                <div class="book-category">
-                    <h3>宇宙科学类</h3>
-                    <ul>
-                        <li>《宇宙知识系列》</li>
-                        <li>《探索月球》</li>
-                        <li>《上帝粒子》</li>
-                        <li>《363号宇宙科学家之三次元释义》</li>
-                        <li>《暗物质，宇宙的卸载器》</li>
-                        <li>《宇宙高周波设备简介》</li>
-                        <li>《螺旋体及其在宇宙当中的应用》</li>
-                    </ul>
+            <div class="categories">
+                <h3>书籍涵盖领域</h3>
+                <div class="category-grid">
+                    <div class="category-item">宇宙知识·宇宙法则</div>
+                    <div class="category-item">宇宙知识·平行空间</div>
+                    <div class="category-item">宇宙知识·外星文明</div>
+                    <div class="category-item">地球文明/地球扬升</div>
+                    <div class="category-item">宇宙科学/现代科技</div>
+                    <div class="category-item">佛法基础常识</div>
+                    <div class="category-item">经典经文</div>
+                    <div class="category-item">灵性成长·灵性基础</div>
+                    <div class="category-item">灵性成长·身心疗愈</div>
+                    <div class="category-item">修行修心·修心基础</div>
+                    <div class="category-item">修行修心·实修指南</div>
+                    <div class="category-item">落地智慧·日常生活</div>
+                    <div class="category-item">落地智慧·事业财富</div>
+                    <div class="category-item">落地智慧·人际关系</div>
+                    <div class="category-item">新文明新商业</div>
+                    <div class="category-item">高维文学·散文诗</div>
+                    <div class="category-item">高维文学·小说</div>
+                    <div class="category-item">人物揭秘/传记</div>
+                    <div class="category-item">高维解读·时事点评</div>
+                    <div class="category-item">高维解读·高维影评</div>
+                    <div class="category-item">高维讯息·基督世界</div>
+                    <div class="category-item">高维讯息·穆斯林世界</div>
+                    <div class="category-item">百家讲坛</div>
                 </div>
             </div>
-        </section>
 
-        <!-- Video Section -->
-        <section id="video">
-            <h2>介绍视频 | Introduction Video</h2>
-            <div class="video-container">
-                <iframe
-                    src="https://www.youtube.com/embed/rU27fXWeWQs"
-                    title="宇宙藏书阁介绍"
-                    frameborder="0"
-                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                    allowfullscreen>
-                </iframe>
+            <div class="invitation-text" style="text-align: center; margin-top: 1.8rem;">
+                <p style="font-size: 1.15rem; color: #D7B56A; font-style: italic;">
+                    "一座无形的书阁，每一次阅读，都是一次与宇宙的对话。"
+                </p>
+                <p style="font-size: 1.05rem; margin-top: 1.2rem;">
+                    愿文字化作光，愿你在光中，找到自己。
+                </p>
             </div>
-        </section>
+        </div>
 
         <!-- Contact Section -->
-        <section id="contact">
-            <h2>联系我们 | Contact Us</h2>
-            <div class="contact-content">
+        <div class="contact-section">
+            <h3>加入我们</h3>
+            <div class="contact-grid">
                 <div class="contact-item">
-                    <h3>WhatsApp 群组</h3>
-                    <p>扫描二维码加入我们的社群</p>
+                    <h4>扫码加入 WhatsApp 群组</h4>
                     <img src="src/QR code/whatsapp.png" alt="WhatsApp QR Code" class="qr-code">
                 </div>
                 <div class="contact-item">
-                    <h3>电子邮箱 | Email</h3>
-                    <p>如有任何疑问，欢迎联系我们</p>
+                    <h4>或通过邮件联系我们</h4>
                     <a href="mailto:cosmiclibrary363@gmail.com" class="email-link">cosmiclibrary363@gmail.com</a>
                 </div>
             </div>
-        </section>
+        </div>
+
+        <!-- Footer -->
+        <div class="invitation-footer">
+            <p>宇宙藏书阁 Cosmic Library</p>
+            <p>意识之书，宇宙之光</p>
+            <p style="font-family: 'Cinzel', serif; font-style: italic; margin-top: 1rem;">
+                May every word become a frequency,<br>and every silence, a galaxy within you.
+            </p>
+        </div>
     </div>
 
-    <!-- Footer -->
-    <footer>
-        <p>&copy; 2025 宇宙藏书阁 Cosmic Library. All rights reserved.</p>
-        <p>意识之书，宇宙之光</p>
-    </footer>
-
-    <!-- Generate stars -->
     <script>
-        // Generate random stars
+        // Generate stars
         const starsContainer = document.getElementById('stars');
-        for (let i = 0; i < 100; i++) {
+        const starCount = 200;
+
+        for (let i = 0; i < starCount; i++) {
             const star = document.createElement('div');
             star.className = 'star';
-            star.style.width = Math.random() * 3 + 'px';
-            star.style.height = star.style.width;
+
+            const sizeRandom = Math.random();
+            let size;
+            let starClass = '';
+
+            if (sizeRandom > 0.95) {
+                size = Math.random() * 2 + 3;
+                starClass = 'large';
+            } else if (sizeRandom > 0.80) {
+                size = Math.random() * 1 + 2;
+                starClass = 'medium';
+            } else {
+                size = Math.random() * 1.5 + 0.5;
+            }
+
+            if (starClass) star.classList.add(starClass);
+
+            star.style.width = size + 'px';
+            star.style.height = size + 'px';
             star.style.left = Math.random() * 100 + '%';
             star.style.top = Math.random() * 100 + '%';
             star.style.animationDelay = Math.random() * 3 + 's';
+            star.style.animationDuration = (Math.random() * 2 + 2) + 's';
+
             starsContainer.appendChild(star);
         }
     </script>
