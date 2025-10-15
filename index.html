@@ -18,9 +18,9 @@
             font-family: 'Noto Serif SC', serif;
             background: linear-gradient(180deg, #0C1427 0%, #1B2744 50%, #15112E 100%);
             color: #E8D9A3;
-            line-height: 1.8;
-            overflow-x: hidden;
-            min-height: 100vh;
+            line-height: 1.6;
+            overflow: hidden;
+            height: 100vh;
             position: relative;
         }
 
@@ -80,19 +80,104 @@
         .invitation-container {
             position: relative;
             z-index: 1;
-            max-width: 900px;
+            max-width: 1400px;
             margin: 0 auto;
-            padding: 3rem 2rem;
-            min-height: 100vh;
+            padding: 2rem;
+            height: 100vh;
+            display: grid;
+            grid-template-columns: 380px 1fr;
+            gap: 2rem;
+            align-items: stretch;
+        }
+
+        /* Left container */
+        .left-container {
             display: flex;
             flex-direction: column;
-            justify-content: center;
+            align-items: center;
+            justify-content: space-between;
+            background: linear-gradient(135deg,
+                rgba(27, 39, 68, 0.95) 0%,
+                rgba(21, 17, 46, 0.95) 50%,
+                rgba(15, 20, 40, 0.95) 100%);
+            padding: 2.5rem 1.5rem;
+            border-radius: 20px;
+            border: 2px solid rgba(215, 181, 106, 0.5);
+            backdrop-filter: blur(20px);
+            box-shadow: 0 15px 50px rgba(0, 0, 0, 0.5),
+                        0 0 80px rgba(215, 181, 106, 0.15),
+                        inset 0 2px 2px rgba(255, 255, 255, 0.15),
+                        inset 0 -2px 10px rgba(0, 0, 0, 0.3);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .left-container::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle at center,
+                rgba(215, 181, 106, 0.15) 0%,
+                rgba(215, 181, 106, 0.05) 30%,
+                transparent 70%);
+            animation: rotate 20s linear infinite;
+        }
+
+        .left-container::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background:
+                radial-gradient(circle at 20% 30%, rgba(255, 255, 255, 0.1) 0%, transparent 40%),
+                radial-gradient(circle at 80% 70%, rgba(215, 181, 106, 0.1) 0%, transparent 40%);
+            pointer-events: none;
+        }
+
+        @keyframes rotate {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+
+        .left-container > * {
+            position: relative;
+            z-index: 1;
+        }
+
+        /* Right container */
+        .right-container {
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start;
+            overflow-y: auto;
+            padding-right: 1rem;
+        }
+
+        .right-container::-webkit-scrollbar {
+            width: 6px;
+        }
+
+        .right-container::-webkit-scrollbar-track {
+            background: rgba(215, 181, 106, 0.1);
+            border-radius: 3px;
+        }
+
+        .right-container::-webkit-scrollbar-thumb {
+            background: rgba(215, 181, 106, 0.4);
+            border-radius: 3px;
+        }
+
+        .right-container::-webkit-scrollbar-thumb:hover {
+            background: rgba(215, 181, 106, 0.6);
         }
 
         /* Logo */
         .logo {
-            max-width: 150px;
+            max-width: 120px;
             margin: 0 auto 1.5rem;
+            display: block;
             filter: drop-shadow(0 0 20px rgba(215, 181, 106, 0.5));
             animation: fadeInDown 1.5s ease;
         }
@@ -105,67 +190,231 @@
         }
 
         .invitation-title h1 {
-            font-size: 2.2rem;
+            font-size: 1.6rem;
             font-weight: 700;
-            margin-bottom: 0.8rem;
+            margin-bottom: 0.6rem;
             background: linear-gradient(135deg, #D7B56A 0%, #E8D9A3 100%);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
-            letter-spacing: 3px;
+            letter-spacing: 2px;
+            line-height: 1.4;
         }
 
         .invitation-title .subtitle {
             font-family: 'Cinzel', serif;
-            font-size: 1rem;
-            letter-spacing: 4px;
+            font-size: 0.75rem;
+            letter-spacing: 2px;
             color: #D7B56A;
+        }
+
+        /* Contact section in left container */
+        .left-contact-section {
+            text-align: center;
+            width: 100%;
+        }
+
+        .left-qr-section {
+            text-align: center;
+            margin-bottom: 1.5rem;
+            padding-bottom: 1.5rem;
+            border-bottom: 1px solid rgba(215, 181, 106, 0.2);
+        }
+
+        .left-qr-section h4 {
+            font-size: 1rem;
+            color: #D7B56A;
+            margin-bottom: 1rem;
+            line-height: 1.4;
+        }
+
+        .left-qr-section .qr-code {
+            max-width: 180px;
+            border-radius: 10px;
+            border: 2px solid rgba(215, 181, 106, 0.3);
+            padding: 0.5rem;
+            background: rgba(255, 255, 255, 0.95);
+            transition: transform 0.3s ease;
+        }
+
+        .left-qr-section .qr-code:hover {
+            transform: scale(1.05);
+        }
+
+        .left-email-section {
+            text-align: center;
+        }
+
+        .left-email-section h4 {
+            font-size: 0.95rem;
+            color: #D7B56A;
+            margin-bottom: 0.8rem;
+            line-height: 1.4;
+        }
+
+        .left-email-section .email-link {
+            color: #D7B56A;
+            text-decoration: none;
+            font-size: 0.9rem;
+            transition: all 0.3s ease;
+            display: inline-block;
+            padding: 0.6rem 1rem;
+            border: 1px solid rgba(215, 181, 106, 0.4);
+            border-radius: 10px;
+            background: rgba(215, 181, 106, 0.05);
+            word-break: break-all;
+        }
+
+        .left-email-section .email-link:hover {
+            color: #E8D9A3;
+            border-color: #D7B56A;
+            background: rgba(215, 181, 106, 0.15);
+            text-shadow: 0 0 10px rgba(215, 181, 106, 0.5);
+            transform: translateY(-2px);
         }
 
         /* Main content */
         .invitation-content {
-            background: rgba(21, 17, 46, 0.7);
-            padding: 2.5rem;
+            background: linear-gradient(135deg,
+                rgba(27, 39, 68, 0.95) 0%,
+                rgba(21, 17, 46, 0.95) 50%,
+                rgba(15, 20, 40, 0.95) 100%);
+            padding: 2.5rem 3rem;
             border-radius: 20px;
-            border: 1px solid rgba(215, 181, 106, 0.3);
-            backdrop-filter: blur(10px);
-            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
-            margin-bottom: 2.5rem;
+            border: 2px solid rgba(215, 181, 106, 0.5);
+            backdrop-filter: blur(20px);
+            box-shadow: 0 15px 50px rgba(0, 0, 0, 0.5),
+                        0 0 80px rgba(215, 181, 106, 0.15),
+                        inset 0 2px 2px rgba(255, 255, 255, 0.15),
+                        inset 0 -2px 10px rgba(0, 0, 0, 0.3);
             animation: fadeInUp 2s ease;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .invitation-content::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background:
+                radial-gradient(circle at 80% 20%, rgba(255, 255, 255, 0.08) 0%, transparent 40%),
+                radial-gradient(circle at 20% 80%, rgba(215, 181, 106, 0.1) 0%, transparent 40%),
+                radial-gradient(circle at 50% 50%, rgba(215, 181, 106, 0.05) 0%, transparent 50%);
+            pointer-events: none;
+            animation: pulse 8s ease-in-out infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { opacity: 0.6; }
+            50% { opacity: 1; }
+        }
+
+        .invitation-content > * {
+            position: relative;
+            z-index: 1;
         }
 
         .greeting {
-            font-size: 1.25rem;
+            font-size: 1.1rem;
             color: #D7B56A;
-            margin-bottom: 1.8rem;
+            margin-bottom: 1rem;
             text-align: center;
             font-weight: 600;
-            line-height: 1.6;
+            line-height: 1.4;
+            position: relative;
+            padding-bottom: 0.8rem;
+        }
+
+        .greeting::after {
+            content: '✦  ✦  ✦';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            font-size: 0.8rem;
+            letter-spacing: 1rem;
+            color: rgba(215, 181, 106, 0.6);
         }
 
         .invitation-text {
-            font-size: 1.1rem;
-            line-height: 1.9;
-            margin-bottom: 2rem;
+            font-size: 0.95rem;
+            line-height: 1.6;
+            margin-bottom: 0.8rem;
             text-align: justify;
         }
 
         .invitation-text p {
-            margin-bottom: 1.2rem;
+            margin-bottom: 0.4rem;
+        }
+
+        /* Prominent invitation call-to-action */
+        .invitation-cta {
+            text-align: center;
+            margin-top: 1.2rem !important;
+            padding: 1.5rem 2rem;
+            background: linear-gradient(135deg,
+                rgba(215, 181, 106, 0.15) 0%,
+                rgba(215, 181, 106, 0.08) 50%,
+                rgba(215, 181, 106, 0.15) 100%);
+            border-radius: 15px;
+            border: 2px solid rgba(215, 181, 106, 0.6);
+            box-shadow: 0 0 30px rgba(215, 181, 106, 0.3),
+                        inset 0 1px 1px rgba(255, 255, 255, 0.2);
+            position: relative;
+            animation: glow 3s ease-in-out infinite;
+        }
+
+
+        @keyframes glow {
+            0%, 100% {
+                box-shadow: 0 0 20px rgba(215, 181, 106, 0.3),
+                            inset 0 1px 1px rgba(255, 255, 255, 0.2);
+            }
+            50% {
+                box-shadow: 0 0 40px rgba(215, 181, 106, 0.5),
+                            0 0 60px rgba(215, 181, 106, 0.2),
+                            inset 0 1px 1px rgba(255, 255, 255, 0.2);
+            }
+        }
+
+
+        .invitation-cta-text {
+            font-size: 1.15rem !important;
+            color: #E8D9A3;
+            font-weight: 700 !important;
+            letter-spacing: 1px;
+            text-shadow: 0 2px 10px rgba(215, 181, 106, 0.5),
+                        0 0 20px rgba(215, 181, 106, 0.3);
+            line-height: 1.6;
+            margin: 0 !important;
         }
 
         /* Benefits section */
         .benefits {
-            margin: 2rem 0;
+            margin: 1.2rem 0 0 0;
         }
 
         .benefits h3 {
-            font-size: 1.3rem;
+            font-size: 1.05rem;
             color: #D7B56A;
-            margin-bottom: 1.2rem;
+            margin-bottom: 0.8rem;
             text-align: center;
             position: relative;
             padding-bottom: 0.8rem;
+        }
+
+        .benefits h3::before {
+            content: '✦';
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+            top: -0.8rem;
+            font-size: 0.8rem;
+            color: rgba(215, 181, 106, 0.6);
         }
 
         .benefits h3::after {
@@ -176,7 +425,13 @@
             transform: translateX(-50%);
             width: 80px;
             height: 2px;
-            background: linear-gradient(90deg, transparent, #D7B56A, transparent);
+            background: linear-gradient(90deg,
+                transparent,
+                rgba(215, 181, 106, 0.3),
+                #D7B56A,
+                rgba(215, 181, 106, 0.3),
+                transparent);
+            box-shadow: 0 0 10px rgba(215, 181, 106, 0.5);
         }
 
         .benefits ul {
@@ -185,9 +440,9 @@
         }
 
         .benefits li {
-            font-size: 1.05rem;
-            padding: 0.6rem 0;
-            padding-left: 2rem;
+            font-size: 0.9rem;
+            padding: 0.3rem 0;
+            padding-left: 1.5rem;
             position: relative;
         }
 
@@ -196,7 +451,7 @@
             position: absolute;
             left: 0;
             color: #D7B56A;
-            font-size: 1.2rem;
+            font-size: 1rem;
         }
 
         /* Categories section */
@@ -239,13 +494,7 @@
 
         /* Contact section */
         .contact-section {
-            background: rgba(21, 17, 46, 0.7);
-            padding: 2.5rem;
-            border-radius: 20px;
-            border: 1px solid rgba(215, 181, 106, 0.3);
-            backdrop-filter: blur(10px);
-            text-align: center;
-            animation: fadeInUp 2.5s ease;
+            display: none;
         }
 
         .contact-section h3 {
@@ -300,16 +549,7 @@
 
         /* Footer */
         .invitation-footer {
-            text-align: center;
-            margin-top: 3rem;
-            padding: 2rem;
-            font-size: 1rem;
-            color: rgba(232, 217, 163, 0.7);
-            animation: fadeIn 3s ease;
-        }
-
-        .invitation-footer p {
-            margin: 0.5rem 0;
+            display: none;
         }
 
         /* Animations */
@@ -344,22 +584,64 @@
             }
         }
 
+        /* Fixed QR Code on Right Side - Hidden in new layout */
+        .fixed-qr-container {
+            display: none;
+        }
+
         /* Responsive */
+        @media (max-width: 1200px) {
+            .fixed-qr-container {
+                right: 10px;
+                padding: 1rem;
+            }
+
+            .fixed-qr-container h4 {
+                font-size: 0.85rem;
+            }
+
+            .fixed-qr-container .qr-code {
+                max-width: 120px;
+            }
+        }
+
+        @media (max-width: 1024px) {
+            .invitation-container {
+                grid-template-columns: 1fr;
+                gap: 1.5rem;
+                padding: 1.5rem;
+                overflow-y: auto;
+            }
+
+            .left-container {
+                padding: 1.5rem;
+            }
+
+            .right-container {
+                overflow-y: visible;
+            }
+
+            body {
+                overflow-y: auto;
+                height: auto;
+            }
+        }
+
         @media (max-width: 768px) {
             .invitation-title h1 {
-                font-size: 2rem;
+                font-size: 1.5rem;
             }
 
             .invitation-title .subtitle {
-                font-size: 1rem;
+                font-size: 0.7rem;
             }
 
             .invitation-content {
-                padding: 2rem 1.5rem;
+                padding: 1.5rem;
             }
 
             .invitation-text {
-                font-size: 1rem;
+                font-size: 0.9rem;
             }
 
             .category-grid {
@@ -369,31 +651,64 @@
             .contact-grid {
                 grid-template-columns: 1fr;
             }
+
+            .logo {
+                max-width: 80px;
+            }
+
+            .left-qr-section .qr-code {
+                max-width: 150px;
+            }
         }
     </style>
 </head>
 <body>
     <div class="stars" id="stars"></div>
 
-    <div class="invitation-container">
-        <!-- Logo -->
-        <img src="src/logo/round.PNG" alt="宇宙藏书阁" class="logo">
+    <!-- Fixed QR Code on Right Side -->
+    <div class="fixed-qr-container">
+        <h4>扫码加入<br>WhatsApp 群组</h4>
+        <img src="src/QR code/whatsapp.png" alt="WhatsApp QR Code" class="qr-code">
+    </div>
 
-        <!-- Title -->
-        <div class="invitation-title">
-            <h1>宇宙藏书阁读书会</h1>
-            <p class="subtitle">COSMIC LIBRARY READING CLUB</p>
+    <div class="invitation-container">
+        <!-- Left Container: Logo, Title, QR Code, Email -->
+        <div class="left-container">
+            <div>
+                <img src="src/logo/round.PNG" alt="宇宙藏书阁" class="logo">
+
+                <div class="invitation-title">
+                    <h1>宇宙藏书阁读书会</h1>
+                    <p class="subtitle">COSMIC LIBRARY READING CLUB</p>
+                </div>
+            </div>
+
+            <div class="left-contact-section">
+                <div class="left-qr-section">
+                    <h4>扫码加入<br>WhatsApp 群组</h4>
+                    <img src="src/QR code/whatsapp.png" alt="WhatsApp QR Code" class="qr-code">
+                </div>
+
+                <div class="left-email-section">
+                    <h4>或通过邮件联系我们</h4>
+                    <a href="mailto:cosmiclibrary363@gmail.com" class="email-link">cosmiclibrary363@gmail.com</a>
+                </div>
+            </div>
         </div>
 
-        <!-- Main Content -->
-        <div class="invitation-content">
+        <!-- Right Container: Main Content -->
+        <div class="right-container">
+            <div class="invitation-content">
             <p class="greeting">致每一位探寻真理的灵魂：</p>
 
             <div class="invitation-text">
                 <p>如果你渴望探索生命的奥秘与宇宙的真相，</p>
                 <p>如果你寻求心灵的成长与意识的觉醒，</p>
                 <p>如果你想在喧嚣的世界中找到内在的平静与智慧，</p>
-                <p style="text-align: center; margin-top: 1.5rem; color: #D7B56A; font-weight: 600;">
+            </div>
+
+            <div class="invitation-cta">
+                <p class="invitation-cta-text">
                     宇宙藏书阁读书会诚挚邀请您的加入
                 </p>
             </div>
@@ -409,46 +724,10 @@
                 </ul>
             </div>
 
-            <div class="categories">
-                <h3>书籍涵盖领域</h3>
-                <div class="category-grid">
-                    <div class="category-item">宇宙知识·宇宙法则</div>
-                    <div class="category-item">宇宙知识·平行空间</div>
-                    <div class="category-item">宇宙知识·外星文明</div>
-                    <div class="category-item">地球文明/地球扬升</div>
-                    <div class="category-item">宇宙科学/现代科技</div>
-                    <div class="category-item">佛法基础常识</div>
-                    <div class="category-item">经典经文</div>
-                    <div class="category-item">灵性成长·灵性基础</div>
-                    <div class="category-item">灵性成长·身心疗愈</div>
-                    <div class="category-item">修行修心·修心基础</div>
-                    <div class="category-item">修行修心·实修指南</div>
-                    <div class="category-item">落地智慧·日常生活</div>
-                    <div class="category-item">落地智慧·事业财富</div>
-                    <div class="category-item">落地智慧·人际关系</div>
-                    <div class="category-item">新文明新商业</div>
-                    <div class="category-item">高维文学·散文诗</div>
-                    <div class="category-item">高维文学·小说</div>
-                    <div class="category-item">人物揭秘/传记</div>
-                    <div class="category-item">高维解读·时事点评</div>
-                    <div class="category-item">高维解读·高维影评</div>
-                    <div class="category-item">高维讯息·基督世界</div>
-                    <div class="category-item">高维讯息·穆斯林世界</div>
-                    <div class="category-item">百家讲坛</div>
-                </div>
-            </div>
-
-            <div class="invitation-text" style="text-align: center; margin-top: 1.8rem;">
-                <p style="font-size: 1.15rem; color: #D7B56A; font-style: italic;">
-                    "一座无形的书阁，每一次阅读，都是一次与宇宙的对话。"
-                </p>
-                <p style="font-size: 1.05rem; margin-top: 1.2rem;">
-                    愿文字化作光，愿你在光中，找到自己。
-                </p>
             </div>
         </div>
 
-        <!-- Contact Section -->
+        <!-- Contact Section (Hidden) -->
         <div class="contact-section">
             <h3>加入我们</h3>
             <div class="contact-grid">
