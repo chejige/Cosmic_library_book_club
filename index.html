@@ -1,385 +1,237 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>宇宙藏书阁读书会 邀请函</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@300;400;600;700&family=Cinzel:wght@400;600&display=swap" rel="stylesheet">
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>宇宙藏书阁读书会 邀请函</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@400;600;700&family=Cinzel:wght@400;600&display=swap" rel="stylesheet">
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
 
-        body {
-            font-family: 'Noto Serif SC', serif;
-            background: #1a1a2e;
-            color: #E8D9A3;
-            line-height: 1.6;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            min-height: 100vh;
-            padding: 20px;
-            position: relative;
-        }
+    body {
+      font-family: 'Noto Serif SC', serif;
+      background: #0c1427;
+      color: #E8D9A3;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      padding: 20px;
+    }
 
-        /* A4 page container */
-        .page-container {
-            width: 210mm;
-            height: 297mm;
-            background: url('src/background.png') no-repeat center center;
-            background-size: cover;
-            position: relative;
-            box-shadow: 0 10px 50px rgba(0, 0, 0, 0.5);
-            overflow: hidden;
-        }
+    .page-container {
+      width: 210mm;
+      height: 297mm;
+      background: url('src/background.png') no-repeat center center;
+      background-size: cover;
+      position: relative;
+      box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5);
+      border-radius: 6px;
+    }
 
-        /* Content wrapper inside the frame */
-        .content-wrapper {
-            position: absolute;
-            top: 12%;
-            left: 10%;
-            right: 10%;
-            bottom: 15%;
-            display: flex;
-            flex-direction: column;
-            justify-content: flex-start;
-            padding: 2rem;
-        }
+    .content-wrapper {
+      position: absolute;
+      top: 8%;
+      left: 10%;
+      right: 10%;
+      bottom: 8%;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      text-align: center;
+    }
 
-        /* Content container */
-        .invitation-container {
-            width: 100%;
-            height: 100%;
-            display: flex;
-            flex-direction: column;
-            gap: 1.5rem;
-        }
+    /* Logo + Title */
+    .header-section {
+      margin-bottom: 1.5rem;
+    }
 
-        /* Header section */
-        .header-section {
-            text-align: center;
-            margin-bottom: 1rem;
-        }
+    .logo {
+      width: 120px;
+      margin: 0 auto 1rem;
+      display: block;
+      filter: drop-shadow(0 0 20px rgba(215, 181, 106, 0.6));
+    }
 
-        /* Logo */
-        .logo {
-            max-width: 80px;
-            margin: 0 auto 0.8rem;
-            display: block;
-            filter: drop-shadow(0 0 15px rgba(215, 181, 106, 0.5));
-        }
+    .invitation-title h1 {
+      font-size: 2rem;
+      font-weight: 700;
+      color: #FFD700;
+      letter-spacing: 3px;
+      margin-bottom: 0.3rem;
+      text-shadow: 0 2px 8px rgba(0, 0, 0, 0.5);
+    }
 
-        /* Title */
-        .invitation-title {
-            text-align: center;
-            margin-bottom: 0.5rem;
-        }
+    .invitation-title .subtitle {
+      font-family: 'Cinzel', serif;
+      font-size: 0.9rem;
+      color: #E8D9A3;
+      letter-spacing: 3px;
+      text-shadow: 0 1px 5px rgba(0, 0, 0, 0.6);
+    }
 
-        .invitation-title h1 {
-            font-size: 1.4rem;
-            font-weight: 700;
-            margin-bottom: 0.4rem;
-            color: #FFD700;
-            letter-spacing: 2px;
-            line-height: 1.4;
-            text-shadow: 0 2px 8px rgba(0, 0, 0, 0.5), 0 0 20px rgba(255, 215, 0, 0.4);
-        }
+    /* Greeting and text */
+    .greeting {
+      font-size: 1.1rem;
+      color: #FFD700;
+      font-weight: 600;
+      margin-bottom: 1rem;
+      text-shadow: 0 2px 8px rgba(0, 0, 0, 0.6);
+    }
 
-        .invitation-title .subtitle {
-            font-family: 'Cinzel', serif;
-            font-size: 0.7rem;
-            letter-spacing: 2px;
-            color: #E8D9A3;
-            text-shadow: 0 1px 4px rgba(0, 0, 0, 0.5);
-        }
+    .invitation-text {
+      font-size: 1rem;
+      line-height: 1.8;
+      color: #E8D9A3;
+      text-shadow: 0 1px 4px rgba(0, 0, 0, 0.6);
+      margin-bottom: 1.2rem;
+    }
 
-        /* Contact section at bottom */
-        .contact-section {
-            display: flex;
-            justify-content: space-around;
-            align-items: center;
-            margin-top: auto;
-            padding-top: 1rem;
-            gap: 2rem;
-        }
+    /* CTA box */
+    .invitation-cta {
+      background: rgba(255, 215, 0, 0.12);
+      border: 2px solid rgba(255, 215, 0, 0.6);
+      border-radius: 14px;
+      padding: 1.2rem;
+      margin: 1rem auto 1.5rem;
+      max-width: 85%;
+      box-shadow: 0 0 25px rgba(255, 215, 0, 0.25);
+    }
 
-        .contact-item {
-            text-align: center;
-            flex: 1;
-        }
+    .invitation-cta-text {
+      color: #FFD700;
+      font-size: 1.2rem;
+      font-weight: 700;
+      text-shadow: 0 2px 8px rgba(0, 0, 0, 0.6);
+      letter-spacing: 1px;
+    }
 
-        .contact-item h4 {
-            font-size: 0.85rem;
-            color: #E8D9A3;
-            margin-bottom: 0.6rem;
-            line-height: 1.3;
-            font-weight: 600;
-            text-shadow: 0 1px 4px rgba(0, 0, 0, 0.6);
-        }
+    /* Benefits */
+    .benefits h3 {
+      font-size: 1.05rem;
+      color: #FFD700;
+      margin-bottom: 0.8rem;
+      text-shadow: 0 2px 6px rgba(0, 0, 0, 0.6);
+    }
 
-        .qr-code {
-            max-width: 120px;
-            border-radius: 8px;
-            border: 2px solid rgba(215, 181, 106, 0.5);
-            padding: 0.4rem;
-            background: rgba(255, 255, 255, 0.95);
-            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
-        }
+    .benefits ul {
+      list-style: none;
+      padding: 0;
+      width: fit-content;
+      margin: 0 auto;
+      text-align: left;
+    }
 
-        .email-link {
-            color: #E8D9A3;
-            text-decoration: none;
-            font-size: 0.75rem;
-            display: inline-block;
-            padding: 0.5rem 0.8rem;
-            border: 1px solid rgba(215, 181, 106, 0.5);
-            border-radius: 8px;
-            background: rgba(0, 0, 0, 0.3);
-            word-break: break-all;
-            transition: all 0.3s ease;
-            text-shadow: 0 1px 3px rgba(0, 0, 0, 0.6);
-        }
+    .benefits li {
+      font-size: 0.95rem;
+      padding: 0.3rem 0;
+      position: relative;
+      padding-left: 1.4rem;
+      color: #E8D9A3;
+    }
 
-        .email-link:hover {
-            background: rgba(215, 181, 106, 0.2);
-            border-color: #FFD700;
-            color: #FFD700;
-            box-shadow: 0 0 10px rgba(255, 215, 0, 0.3);
-        }
+    .benefits li::before {
+      content: '✦';
+      position: absolute;
+      left: 0;
+      color: #FFD700;
+    }
 
-        /* Main content */
-        .invitation-content {
-            flex: 1;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            padding: 1rem 0;
-        }
+    /* Contact */
+    .contact-section {
+      display: flex;
+      justify-content: center;
+      gap: 3rem;
+      align-items: center;
+      margin-top: 2rem;
+    }
 
-        .greeting {
-            font-size: 0.95rem;
-            color: #FFD700;
-            margin-bottom: 0.8rem;
-            text-align: center;
-            font-weight: 600;
-            line-height: 1.4;
-            text-shadow: 0 2px 6px rgba(0, 0, 0, 0.6);
-        }
+    .contact-item {
+      text-align: center;
+    }
 
-        .invitation-text {
-            font-size: 0.85rem;
-            line-height: 1.5;
-            margin-bottom: 0.8rem;
-            text-align: center;
-            color: #E8D9A3;
-            text-shadow: 0 1px 4px rgba(0, 0, 0, 0.6);
-        }
+    .contact-item h4 {
+      color: #FFD700;
+      font-size: 1rem;
+      margin-bottom: 0.8rem;
+      text-shadow: 0 1px 5px rgba(0, 0, 0, 0.6);
+    }
 
-        .invitation-text p {
-            margin-bottom: 0.3rem;
-        }
+    .qr-code {
+      width: 150px;
+      border-radius: 10px;
+      background: white;
+      padding: 6px;
+      box-shadow: 0 3px 10px rgba(0, 0, 0, 0.4);
+    }
 
-        /* Prominent invitation call-to-action */
-        .invitation-cta {
-            text-align: center;
-            margin: 1rem 0;
-            padding: 1rem 1.5rem;
-            background: linear-gradient(135deg,
-                rgba(255, 215, 0, 0.15) 0%,
-                rgba(232, 217, 163, 0.12) 50%,
-                rgba(255, 215, 0, 0.15) 100%);
-            border-radius: 12px;
-            border: 2px solid rgba(255, 215, 0, 0.5);
-            box-shadow: 0 0 20px rgba(255, 215, 0, 0.2),
-                        inset 0 1px 1px rgba(255, 255, 255, 0.1);
-        }
+    .email-link {
+      color: #E8D9A3;
+      font-size: 0.9rem;
+      text-decoration: none;
+      padding: 0.5rem 0.8rem;
+      border: 1px solid rgba(255, 215, 0, 0.5);
+      border-radius: 10px;
+      transition: 0.3s;
+    }
 
-        .invitation-cta-text {
-            font-size: 1rem !important;
-            color: #FFD700;
-            font-weight: 700 !important;
-            letter-spacing: 1px;
-            line-height: 1.5;
-            margin: 0 !important;
-            text-shadow: 0 2px 8px rgba(0, 0, 0, 0.6), 0 0 15px rgba(255, 215, 0, 0.3);
-        }
+    .email-link:hover {
+      color: #FFD700;
+      border-color: #FFD700;
+      box-shadow: 0 0 10px rgba(255, 215, 0, 0.4);
+    }
 
-        /* Benefits section */
-        .benefits {
-            margin: 0.8rem 0;
-        }
-
-        .benefits h3 {
-            font-size: 0.9rem;
-            color: #FFD700;
-            margin-bottom: 0.6rem;
-            text-align: center;
-            font-weight: 600;
-            text-shadow: 0 2px 6px rgba(0, 0, 0, 0.6);
-        }
-
-        .benefits ul {
-            list-style: none;
-            padding: 0;
-        }
-
-        .benefits li {
-            font-size: 0.8rem;
-            padding: 0.25rem 0;
-            padding-left: 1.2rem;
-            position: relative;
-            color: #E8D9A3;
-            text-align: left;
-            text-shadow: 0 1px 4px rgba(0, 0, 0, 0.6);
-        }
-
-        .benefits li::before {
-            content: '✦';
-            position: absolute;
-            left: 0;
-            color: #D7B56A;
-            font-size: 0.9rem;
-        }
-
-
-        /* Print styles for A4 */
-        @media print {
-            body {
-                padding: 0;
-                background: white;
-            }
-
-            .page-container {
-                box-shadow: none;
-                page-break-after: always;
-            }
-        }
-
-        /* Responsive */
-        @media (max-width: 768px) {
-            .page-container {
-                width: 100vw;
-                height: auto;
-                min-height: 100vh;
-            }
-
-            .content-wrapper {
-                position: relative;
-                top: auto;
-                left: auto;
-                right: auto;
-                bottom: auto;
-                padding: 1rem;
-            }
-
-            .logo {
-                max-width: 60px;
-            }
-
-            .invitation-title h1 {
-                font-size: 1.2rem;
-            }
-
-            .invitation-title .subtitle {
-                font-size: 0.6rem;
-            }
-
-            .greeting {
-                font-size: 0.85rem;
-            }
-
-            .invitation-text {
-                font-size: 0.75rem;
-            }
-
-            .invitation-cta {
-                padding: 0.8rem 1rem;
-            }
-
-            .invitation-cta-text {
-                font-size: 0.9rem !important;
-            }
-
-            .benefits h3 {
-                font-size: 0.8rem;
-            }
-
-            .benefits li {
-                font-size: 0.7rem;
-            }
-
-            .contact-section {
-                flex-direction: column;
-                gap: 1rem;
-            }
-
-            .qr-code {
-                max-width: 100px;
-            }
-
-            .email-link {
-                font-size: 0.7rem;
-            }
-        }
-    </style>
+    @media print {
+      .page-container { box-shadow: none; }
+    }
+  </style>
 </head>
 <body>
-    <div class="page-container">
-        <div class="content-wrapper">
-            <div class="invitation-container">
-                <!-- Header Section -->
-                <div class="header-section">
-                    <img src="src/logo/round.PNG" alt="宇宙藏书阁" class="logo">
-                    <div class="invitation-title">
-                        <h1>宇宙藏书阁读书会</h1>
-                        <p class="subtitle">COSMIC LIBRARY READING CLUB</p>
-                    </div>
-                </div>
-
-                <!-- Main Content -->
-                <div class="invitation-content">
-                    <p class="greeting">致每一位探寻真理的灵魂：</p>
-
-                    <div class="invitation-text">
-                        <p>如果你渴望探索生命的奥秘与宇宙的真相，</p>
-                        <p>如果你寻求心灵的成长与意识的觉醒，</p>
-                        <p>如果你想在喧嚣的世界中找到内在的平静与智慧，</p>
-                    </div>
-
-                    <div class="invitation-cta">
-                        <p class="invitation-cta-text">
-                            宇宙藏书阁读书会诚挚邀请您的加入
-                        </p>
-                    </div>
-
-                    <div class="benefits">
-                        <h3>在这里，您可以</h3>
-                        <ul>
-                            <li>接触来自更高意识层的宇宙智慧文献</li>
-                            <li>与志同道合的觉醒者共同交流与成长</li>
-                            <li>开启一段与宇宙对话的奇妙旅程</li>
-                        </ul>
-                    </div>
-                </div>
-
-                <!-- Contact Section -->
-                <div class="contact-section">
-                    <div class="contact-item">
-                        <h4>扫码加入 WhatsApp 群组</h4>
-                        <img src="src/QR code/whatsapp.png" alt="WhatsApp QR Code" class="qr-code">
-                    </div>
-                    <div class="contact-item">
-                        <h4>或通过邮件联系我们</h4>
-                        <a href="mailto:cosmiclibrary363@gmail.com" class="email-link">cosmiclibrary363@gmail.com</a>
-                    </div>
-                </div>
-            </div>
+  <div class="page-container">
+    <div class="content-wrapper">
+      <div class="header-section">
+        <img src="src/logo/round.PNG" alt="宇宙藏书阁" class="logo" />
+        <div class="invitation-title">
+          <h1>宇宙藏书阁读书会</h1>
+          <p class="subtitle">COSMIC LIBRARY READING CLUB</p>
         </div>
+      </div>
+
+      <div>
+        <p class="greeting">致每一位探寻真理的灵魂：</p>
+        <div class="invitation-text">
+          <p>若你渴望探索生命的奥秘与宇宙的真相，</p>
+          <p>若你追求心灵成长与意识觉醒，</p>
+          <p>若你希望在喧嚣中寻得平静与智慧——</p>
+        </div>
+
+        <div class="invitation-cta">
+          <p class="invitation-cta-text">宇宙藏书阁读书会诚挚邀请您的加入</p>
+        </div>
+
+        <div class="benefits">
+          <h3>在这里，您将体验</h3>
+          <ul>
+            <li>接触更高意识层的宇宙智慧文献</li>
+            <li>与志同道合者共修共悟，共享成长</li>
+            <li>展开一段与宇宙对话的奇妙旅程</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="contact-section">
+        <div class="contact-item">
+          <h4>扫码加入 WhatsApp 群组</h4>
+          <img src="src/QR code/whatsapp.png" alt="WhatsApp QR" class="qr-code" />
+        </div>
+        <div class="contact-item">
+          <h4>或通过邮件联系我们</h4>
+          <a href="mailto:cosmiclibrary363@gmail.com" class="email-link">cosmiclibrary363@gmail.com</a>
+        </div>
+      </div>
     </div>
+  </div>
 </body>
 </html>
