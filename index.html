@@ -51,6 +51,7 @@
     .logo {
       width: 120px;
       margin: 0 auto 1rem;
+      margin-top: 1.5rem;
       display: block;
       filter: drop-shadow(0 0 20px rgba(215, 181, 106, 0.6));
     }
@@ -141,47 +142,68 @@
 
     /* Contact */
     .contact-section {
-      display: flex;
-      justify-content: center;
-      gap: 3rem;
-      align-items: center;
-      margin-top: 2rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;  /* ensures both columns align vertically */
+    gap: 4rem;
+    margin-top: 2rem;
     }
 
-    .contact-item {
-      text-align: center;
+    .contact-column {
+    text-align: center;
+    flex: 1;
     }
 
-    .contact-item h4 {
-      color: #FFD700;
-      font-size: 1rem;
-      margin-bottom: 0.8rem;
-      text-shadow: 0 1px 5px rgba(0, 0, 0, 0.6);
+    .contact-column h4 {
+    color: #FFD700;
+    font-size: 1rem;
+    margin-bottom: 1rem;
+    text-shadow: 0 1px 5px rgba(0, 0, 0, 0.6);
     }
 
     .qr-code {
-      width: 150px;
-      border-radius: 10px;
-      background: white;
-      padding: 6px;
-      box-shadow: 0 3px 10px rgba(0, 0, 0, 0.4);
+    width: 150px;
+    border-radius: 10px;
+    background: white;
+    padding: 6px;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.4);
+    margin-bottom: 5.5rem;
     }
 
+    .youtube-link{
+    display: inline-block;
+    color: #E8D9A3;
+    font-size: 0.9rem;
+    text-decoration: none;
+    padding: 0.5rem 0.8rem;
+    border: 1px solid rgba(255, 215, 0, 0.5);
+    border-radius: 10px;
+    transition: 0.3s;
+    margin-top: 0.5rem;
+    margin-bottom: 0.5rem;
+    margin-right: 4rem;
+    }
     .email-link {
-      color: #E8D9A3;
-      font-size: 0.9rem;
-      text-decoration: none;
-      padding: 0.5rem 0.8rem;
-      border: 1px solid rgba(255, 215, 0, 0.5);
-      border-radius: 10px;
-      transition: 0.3s;
+    display: inline-block;
+    color: #E8D9A3;
+    font-size: 0.9rem;
+    text-decoration: none;
+    padding: 0.5rem 0.8rem;
+    border: 1px solid rgba(255, 215, 0, 0.5);
+    border-radius: 10px;
+    transition: 0.3s;
+    margin-top: 0.5rem;
+    margin-bottom: 5.5rem;
+     margin-right: 1rem;
     }
 
+    .youtube-link:hover,
     .email-link:hover {
-      color: #FFD700;
-      border-color: #FFD700;
-      box-shadow: 0 0 10px rgba(255, 215, 0, 0.4);
+    color: #FFD700;
+    border-color: #FFD700;
+    box-shadow: 0 0 10px rgba(255, 215, 0, 0.4);
     }
+
 
     @media print {
       .page-container { box-shadow: none; }
@@ -222,15 +244,18 @@
       </div>
 
       <div class="contact-section">
-        <div class="contact-item">
-          <h4>扫码加入 WhatsApp 群组</h4>
-          <img src="src/QR code/whatsapp.png" alt="WhatsApp QR" class="qr-code" />
+        <div class="contact-column">
+            <h4>扫码加入 WhatsApp 群组</h4>
+            <img src="src/QR code/whatsapp.png" alt="WhatsApp QR" class="qr-code" />
         </div>
-        <div class="contact-item">
-          <h4>或通过邮件联系我们</h4>
-          <a href="mailto:cosmiclibrary363@gmail.com" class="email-link">cosmiclibrary363@gmail.com</a>
+        <div class="contact-column">
+            <h4 style='margin-right: 4rem'>或通过其他方式联系我们</h4>
+            <a href="https://www.youtube.com/@withMeira" target="_blank" class="youtube-link">YouTube: @withMeira</a>
+            <br />
+            <a href="mailto:cosmiclibrary363@gmail.com" class="email-link">cosmiclibrary363@gmail.com</a>
         </div>
-      </div>
+        </div>
+
     </div>
   </div>
 </body>
