@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Cosmic Library Reading Club - Invitation</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@400;600;700&family=Cinzel:wght@400;600&family=Playfair+Display:wght@400;600;700&display=swap" rel="stylesheet">
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      font-family: 'Playfair Display', 'Georgia', serif;
+      background: #0c1427;
+      color: #E8D9A3;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      padding: 20px;
+    }
+
+    .page-container {
+      width: 180mm;
+      height: 297mm;
+      background: url('src/background.png') no-repeat center center;
+      background-size: cover;
+      position: relative;
+      box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5);
+      border-radius: 6px;
+    }
+
+    .content-wrapper {
+      position: absolute;
+      top: 12%;
+      left: 10%;
+      right: 10%;
+      bottom: 10%;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      text-align: center;
+    }
+
+    /* Logo + Title */
+    .header-section {
+      margin-bottom: 0.8rem;
+    }
+
+    .logo {
+      width: 100px;
+      margin: 0 auto 0.6rem;
+      margin-top: 0.5rem;
+      display: block;
+      filter: drop-shadow(0 0 20px rgba(215, 181, 106, 0.6));
+    }
+
+    .invitation-title h1 {
+      font-size: 1.8rem;
+      font-weight: 700;
+      color: #FFD700;
+      letter-spacing: 3px;
+      margin-bottom: 0.3rem;
+      text-shadow: 0 2px 8px rgba(0, 0, 0, 0.5);
+      text-transform: uppercase;
+    }
+
+    .invitation-title .subtitle {
+      font-family: 'Cinzel', serif;
+      font-size: 0.9rem;
+      color: #FFD700;
+      letter-spacing: 3px;
+      text-shadow: 0 1px 5px rgba(0, 0, 0, 0.6);
+    }
+
+    /* Greeting and text */
+    .greeting {
+      font-size: 1.1rem;
+      color: #FFD700;
+      font-weight: 600;
+      margin-bottom: 1rem;
+      text-shadow: 0 2px 8px rgba(0, 0, 0, 0.6);
+      text-transform: uppercase;
+    }
+
+    .invitation-text {
+      font-size: 1rem;
+      line-height: 1.8;
+      color: #E8D9A3;
+      text-shadow: 0 1px 4px rgba(0, 0, 0, 0.6);
+      margin-bottom: 1.2rem;
+    }
+
+    /* CTA box */
+    .invitation-cta {
+      background: rgba(255, 215, 0, 0.12);
+      border: 2px solid rgba(255, 215, 0, 0.6);
+      border-radius: 14px;
+      padding: 1.2rem;
+      margin: 1rem auto 1.5rem;
+      max-width: 85%;
+      box-shadow: 0 0 25px rgba(255, 215, 0, 0.25);
+    }
+
+    .invitation-cta-text {
+      color: #FFD700;
+      font-size: 1.2rem;
+      font-weight: 700;
+      text-shadow: 0 2px 8px rgba(0, 0, 0, 0.6);
+      letter-spacing: 1px;
+      text-transform: uppercase;
+    }
+
+    /* Benefits */
+    .benefits h3 {
+      font-size: 1.05rem;
+      color: #FFD700;
+      margin-bottom: 0.8rem;
+      text-shadow: 0 2px 6px rgba(0, 0, 0, 0.6);
+      text-transform: uppercase;
+    }
+
+    .benefits ul {
+      list-style: none;
+      padding: 0;
+      width: fit-content;
+      margin: 0 auto;
+      text-align: left;
+    }
+
+    .benefits li {
+      font-size: 0.95rem;
+      padding: 0.3rem 0;
+      position: relative;
+      padding-left: 1.4rem;
+      color: #E8D9A3;
+    }
+
+    .benefits li::before {
+      content: '✦';
+      position: absolute;
+      left: 0;
+      color: #FFD700;
+    }
+
+    /* Contact */
+    .contact-section {
+    display: flex;
+    justify-content: center;
+    align-items: center;  /* ensures both columns align vertically */
+    gap: 2rem;
+    margin-top: 0.5rem;
+    }
+
+    .contact-column {
+    text-align: center;
+    flex: 1;
+    }
+
+    .contact-column h4 {
+    color: #FFD700;
+    font-size: 0.95rem;
+    margin-bottom: 0.6rem;
+    text-shadow: 0 1px 5px rgba(0, 0, 0, 0.6);
+    text-transform: uppercase;
+    }
+
+    .qr-code {
+    width: 130px;
+    border-radius: 10px;
+    background: white;
+    padding: 6px;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.4);
+    margin-bottom: 5.5rem;
+    }
+
+    .youtube-link{
+    display: inline-block;
+    color: #E8D9A3;
+    font-size: 0.9rem;
+    text-decoration: none;
+    padding: 0.5rem 0.8rem;
+    border: 1px solid rgba(255, 215, 0, 0.5);
+    border-radius: 10px;
+    transition: 0.3s;
+    margin-top: 0.5rem;
+    margin-bottom: 0.5rem;
+    margin-right: 4rem;
+    }
+    .email-link {
+    display: inline-block;
+    color: #E8D9A3;
+    font-size: 0.9rem;
+    text-decoration: none;
+    padding: 0.5rem 0.8rem;
+    border: 1px solid rgba(255, 215, 0, 0.5);
+    border-radius: 10px;
+    transition: 0.3s;
+    margin-top: 0.5rem;
+    margin-bottom: 5.5rem;
+     margin-right: 1rem;
+    }
+
+    .youtube-link:hover,
+    .email-link:hover {
+    color: #FFD700;
+    border-color: #FFD700;
+    box-shadow: 0 0 10px rgba(255, 215, 0, 0.4);
+    }
+
+
+    @media print {
+      .page-container { box-shadow: none; }
+    }
+  </style>
+</head>
+<body>
+  <div class="page-container">
+    <div class="content-wrapper">
+      <div class="header-section">
+        <img src="src/logo/round.PNG" alt="Cosmic Library" class="logo" />
+        <div class="invitation-title">
+          <h1>Cosmic Library Reading Club</h1>
+          <p class="subtitle">宇宙藏书阁读书会</p>
+        </div>
+      </div>
+
+      <div>
+        <p class="greeting">To Every Soul Seeking Truth:</p>
+        <div class="invitation-text">
+          <p>Explore life's mysteries, pursue spiritual awakening, and discover wisdom in the chaos</p>
+        </div>
+
+        <div class="invitation-cta">
+          <p class="invitation-cta-text">Join the Cosmic Library Reading Club</p>
+        </div>
+
+        <div class="benefits">
+          <h3>What We Offer</h3>
+          <ul>
+            <li>Higher consciousness cosmic wisdom literature</li>
+            <li>Like-minded companions for shared growth</li>
+            <li>A transformative dialogue with the universe</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="contact-section">
+        <div class="contact-column">
+            <h4>Scan to Join WhatsApp Group</h4>
+            <img src="src/QR code/whatsapp.png" alt="WhatsApp QR" class="qr-code" />
+        </div>
+        <div class="contact-column">
+            <h4 style='margin-right: 4rem'>Or Contact Us Through</h4>
+            <a href="https://www.youtube.com/@withMeira" target="_blank" class="youtube-link">YouTube: @withMeira</a>
+            <br />
+            <a href="mailto:cosmiclibrary363@gmail.com" class="email-link">cosmiclibrary363@gmail.com</a>
+        </div>
+        </div>
+
+    </div>
+  </div>
+</body>
+</html>
