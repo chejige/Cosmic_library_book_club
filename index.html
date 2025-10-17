@@ -130,52 +130,45 @@
       color: #FFD700;
     }
 
-    /* Two Column Layout */
-    .two-column-layout {
-      display: flex;
-      gap: 1rem;
-      align-items: stretch;
+    /* CTA Box */
+    .invitation-cta {
+      background: rgba(255, 215, 0, 0.08);
+      border: 2px solid rgba(255, 215, 0, 0.4);
+      border-radius: 12px;
+      padding: 1.5rem;
       margin: 1rem auto;
       max-width: 90%;
       margin-bottom: 6rem;
+      box-shadow: 0 0 20px rgba(255, 215, 0, 0.15);
+    }
+
+    /* Three Column Layout */
+    .three-column-layout {
+      display: flex;
+      gap: 1.5rem;
+      align-items: flex-start;
+      margin-top: 1.5rem;
     }
 
     /* Event Details */
     .event-details {
-      background: rgba(255, 215, 0, 0.08);
-      /* border: 2px solid rgba(255, 215, 0, 0.6); */
-      border-radius: 12px;
-      padding: 1.5rem;
       flex: 1;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
+      text-align: center;
     }
 
     .event-details h3 {
-      font-size: 1rem;
+      font-size: 0.95rem;
       color: #FFD700;
-      margin-bottom: 1rem;
+      margin-bottom: 0.8rem;
       text-shadow: 0 2px 6px rgba(0, 0, 0, 0.6);
     }
 
     .event-info {
-      font-size: 0.95rem;
-      color: #fffffd;
-      line-height: 1.8;
+      font-size: 0.85rem;
+      color: #FFFFFF;
+      line-height: 1.6;
       margin: 0.3rem 0;
-    }
-
-    /* CTA Box */
-    .invitation-cta {
-      background: rgba(255, 215, 0, 0.12);
-      /* border: 2px solid rgba(255, 215, 0, 0.6); */
-      border-radius: 12px;
-      padding: 1.5rem;
-      flex: 1;
-      display: flex;
-      flex-direction: column;
-      box-shadow: 0 0 20px rgba(255, 215, 0, 0.2);
+      text-shadow: 0 2px 4px rgba(0, 0, 0, 0.8);
     }
 
     /* CTA Updates */
@@ -186,20 +179,6 @@
       margin-bottom: 1rem;
       font-weight: 400;
       letter-spacing: 0.5px;
-    }
-
-    /* Contact Section */
-    .contact-section {
-      text-align: center;
-      margin-top: 1rem;
-    }
-
-    .contact-layout {
-      display: flex;
-      justify-content: center;
-      align-items: flex-start;
-      gap: 2rem;
-      flex-wrap: nowrap;
     }
 
     .qr-section {
@@ -390,14 +369,13 @@
         font-size: 0.85rem;
       }
 
-      .two-column-layout {
+      .three-column-layout {
         flex-direction: column;
         gap: 1.5rem;
       }
 
-      .contact-layout {
-        flex-direction: column;
-        gap: 1.5rem;
+      .invitation-cta {
+        padding: 1rem;
       }
 
       .qr-code {
@@ -457,37 +435,33 @@
             <li>展开一段与宇宙对话的奇妙旅程</li>
           </ul>
         </div>
-        <div class="two-column-layout">
-          <div class="event-details">
-            <h3>活动形式</h3>
-            <p class="event-info"><strong>线上读书会</strong></p>
-            <p class="event-info">每周六 | 晚上8点 GMT</p>
-            <p class="event-info">平台：Zoom</p>
-          </div>
+        <div class="invitation-cta">
+          <p class="invitation-cta-text">立即报名！</p>
 
-          <div class="invitation-cta">
-            <p class="invitation-cta-text">立即报名！</p>
-            
+          <div class="three-column-layout">
+            <div class="event-details">
+              <h3>活动形式</h3>
+              <p class="event-info"><strong>线上读书会</strong></p>
+              <p class="event-info">每周六 | 晚上8点 GMT</p>
+              <p class="event-info">平台：Zoom</p>
+            </div>
 
-            <div class="contact-section">
-              <div class="contact-layout">
-                <div class="qr-section">
-                  <h5 class="qr-title">扫码加入 WhatsApp 群组</h5>
-                  <img src="src/QR code/whatsapp.png" alt="WhatsApp QR" class="qr-code" />
-                </div>
-                <div class="alternative-contacts">
-                  <h5 class="alt-title">或通过其他方式联系我们</h5>
-                  <div class="contact-text-alt">
-                    <p class="contact-text-item">
-                      <span class="contact-label-text">邮箱：</span>
-                      <a href="mailto:cosmiclibrary363@gmail.com" class="contact-link">cosmiclibrary363@gmail.com</a>
-                    </p>
-                    <p class="contact-text-item">
-                      <span class="contact-label-text">YouTube：</span>
-                      <a href="https://www.youtube.com/@withMeira" target="_blank" class="contact-link">@withMeira</a>
-                    </p>
-                  </div>
-                </div>
+            <div class="qr-section">
+              <h5 class="qr-title">扫码加入 WhatsApp 群组</h5>
+              <img src="src/QR code/whatsapp.png" alt="WhatsApp QR" class="qr-code" />
+            </div>
+
+            <div class="alternative-contacts">
+              <h5 class="alt-title">或通过其他方式联系我们</h5>
+              <div class="contact-text-alt">
+                <p class="contact-text-item">
+                  <span class="contact-label-text">邮箱：</span>
+                  <a href="mailto:cosmiclibrary363@gmail.com" class="contact-link">cosmiclibrary363@gmail.com</a>
+                </p>
+                <p class="contact-text-item">
+                  <span class="contact-label-text">YouTube：</span>
+                  <a href="https://www.youtube.com/@withMeira" target="_blank" class="contact-link">@withMeira</a>
+                </p>
               </div>
             </div>
           </div>
